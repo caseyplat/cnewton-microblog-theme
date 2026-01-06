@@ -1,0 +1,345 @@
+/* Casey Newton - Micro.blog Custom Theme
+   Matching cnewton.org aesthetic */
+
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --cyan: #00FFFF;
+    --magenta: #FF00FF;
+    --dark: #0a0a0f;
+    --darker: #050508;
+    --gray: #1a1a24;
+    --light: #e0e0e8;
+}
+
+/* Base styles */
+body {
+    font-family: 'Space Mono', monospace !important;
+    background: var(--darker) !important;
+    color: var(--light) !important;
+    cursor: crosshair;
+}
+
+/* Pixel grid background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Scanline effect */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+    );
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.3;
+}
+
+/* Header / Site title */
+.site-header, header {
+    background: linear-gradient(to bottom, var(--darker) 0%, transparent 100%) !important;
+}
+
+.site-title, .site-name, h1.site-title {
+    font-family: 'Syne', sans-serif !important;
+    font-weight: 800 !important;
+    background: linear-gradient(135deg, var(--light) 0%, var(--cyan) 50%, var(--magenta) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* Profile image - cool border and glow */
+.profile-photo, .avatar, img[src*="avatar"], img[src*="profile"], img[src*="micro.blog"] {
+    border: 3px solid var(--cyan) !important;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(255, 0, 255, 0.2) !important;
+    clip-path: polygon(
+        0 8px, 8px 8px, 8px 0,
+        calc(100% - 8px) 0, calc(100% - 8px) 8px, 100% 8px,
+        100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px), calc(100% - 8px) 100%,
+        8px 100%, 8px calc(100% - 8px), 0 calc(100% - 8px)
+    ) !important;
+    animation: photoGlow 4s ease-in-out infinite !important;
+}
+
+@keyframes photoGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(255, 0, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.6), 0 0 60px rgba(255, 0, 255, 0.4);
+    }
+}
+
+/* Navigation links */
+nav a, .nav a, .site-nav a {
+    font-family: 'Silkscreen', cursive !important;
+    color: var(--light) !important;
+    text-decoration: none !important;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--gray) !important;
+    padding: 0.5rem 1rem !important;
+    background: var(--dark) !important;
+}
+
+nav a:hover, .nav a:hover, .site-nav a:hover {
+    color: var(--cyan) !important;
+    border-color: var(--cyan) !important;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3) !important;
+}
+
+/* Links */
+a {
+    color: var(--cyan) !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--magenta) !important;
+    text-shadow: 0 0 10px var(--magenta);
+}
+
+/* Post titles */
+.post-title, article h2, .entry-title {
+    font-family: 'Syne', sans-serif !important;
+    color: var(--light) !important;
+}
+
+.post-title a, article h2 a, .entry-title a {
+    background: linear-gradient(135deg, var(--light) 0%, var(--cyan) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* Post content */
+article, .post, .h-entry {
+    background: var(--dark) !important;
+    border: 1px solid var(--gray) !important;
+    border-radius: 4px !important;
+    padding: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+article:hover, .post:hover, .h-entry:hover {
+    border-color: rgba(0, 255, 255, 0.3) !important;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1) !important;
+}
+
+/* Post meta / dates */
+.post-meta, time, .dt-published {
+    font-family: 'Silkscreen', cursive !important;
+    font-size: 0.7rem !important;
+    color: #FF00FF !important;
+    letter-spacing: 2px;
+}
+
+/* Date hover effect */
+.post-meta:hover, time:hover, .dt-published:hover {
+    color: #00FFFF !important;
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+    transition: all 0.3s ease;
+}
+
+/* Ensure date is always bright */
+article .post-meta, article time, article .dt-published,
+.h-entry .post-meta, .h-entry time, .h-entry .dt-published {
+    color: #FF00FF !important;
+    opacity: 1 !important;
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Fix post-date link opacity */
+.post-date, a.post-date, .post-date.u-url {
+    opacity: 1 !important;
+}
+
+/* Footer */
+footer, .site-footer {
+    background: var(--darker) !important;
+    border-top: 1px solid var(--gray) !important;
+    color: rgba(224, 224, 232, 0.5) !important;
+    font-size: 0.8rem;
+}
+
+/* Images in posts */
+article img, .post img, .e-content img {
+    border: 2px solid var(--gray) !important;
+    border-radius: 4px !important;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 3px solid var(--cyan) !important;
+    background: var(--gray) !important;
+    padding: 1rem !important;
+    margin: 1rem 0 !important;
+    font-style: italic;
+}
+
+/* Code blocks */
+code, pre {
+    font-family: 'Space Mono', monospace !important;
+    background: var(--gray) !important;
+    color: var(--cyan) !important;
+    border-radius: 4px !important;
+}
+
+/* Selection */
+::selection {
+    background: var(--cyan) !important;
+    color: var(--darker) !important;
+}
+
+/* Category tags */
+.post-categories {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.category-tag {
+    font-family: 'Silkscreen', cursive !important;
+    font-size: 0.65rem !important;
+    color: var(--cyan) !important;
+    background: var(--dark) !important;
+    border: 1px solid var(--cyan) !important;
+    padding: 0.25rem 0.5rem !important;
+    border-radius: 2px !important;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.category-tag:hover {
+    background: var(--cyan) !important;
+    color: var(--darker) !important;
+    box-shadow: 0 0 10px var(--cyan);
+}
+
+/* Now Playing Widget */
+#now-playing {
+    background: var(--dark) !important;
+    border: 1px solid var(--cyan) !important;
+    border-radius: 4px !important;
+    padding: 1rem !important;
+    margin: 2rem auto !important;
+    max-width: 300px !important;
+}
+
+.now-playing-header {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-bottom: 0.75rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid var(--gray) !important;
+}
+
+.pixel-icon {
+    color: var(--magenta) !important;
+    font-size: 1.2rem !important;
+}
+
+.now-playing-label {
+    font-family: 'Silkscreen', cursive !important;
+    font-size: 0.65rem !important;
+    color: var(--cyan) !important;
+    letter-spacing: 2px !important;
+}
+
+.now-playing-widget.is-playing .now-playing-label {
+    color: var(--magenta) !important;
+    animation: pulse 2s infinite !important;
+}
+
+.now-playing-content {
+    display: flex !important;
+    gap: 0.75rem !important;
+    align-items: center !important;
+}
+
+.album-art-container {
+    flex-shrink: 0 !important;
+}
+
+#now-playing .album-art,
+.now-playing-widget img.album-art,
+.now-playing-widget img {
+    width: 64px !important;
+    height: 64px !important;
+    max-width: 64px !important;
+    min-width: 64px !important;
+    border: 2px solid var(--cyan) !important;
+    border-radius: 2px !important;
+    object-fit: cover !important;
+}
+
+.track-info {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.track-name {
+    font-family: 'Space Mono', monospace !important;
+    font-size: 0.85rem !important;
+    color: var(--light) !important;
+    font-weight: bold !important;
+    margin-bottom: 0.25rem !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+.artist-name {
+    font-family: 'Space Mono', monospace !important;
+    font-size: 0.75rem !important;
+    color: var(--magenta) !important;
+}
+
+.lastfm-link {
+    display: block !important;
+    margin-top: 0.75rem !important;
+    padding-top: 0.5rem !important;
+    border-top: 1px solid var(--gray) !important;
+    font-family: 'Silkscreen', cursive !important;
+    font-size: 0.55rem !important;
+    color: var(--cyan) !important;
+    text-decoration: none !important;
+    letter-spacing: 1px !important;
+}
+
+.lastfm-link:hover {
+    color: var(--magenta) !important;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
