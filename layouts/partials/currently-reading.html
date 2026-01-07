@@ -1,4 +1,4 @@
-{{ with index .Site.Data.bookshelves "currently-reading" }}
+{{ with .Site.Data.bookshelves.currentlyreading }}
 {{ range first 1 . }}
 <div id="currently-reading" class="currently-reading-widget">
   <div class="widget-header">
