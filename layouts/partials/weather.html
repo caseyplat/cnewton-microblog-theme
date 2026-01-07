@@ -1,0 +1,39 @@
+<div id="weather-widget" class="weather-widget">
+  <span class="weather-icon">&#9728;</span>
+  <span class="weather-location">SF</span>
+  <span class="weather-temp">--°</span>
+  <span class="weather-desc">Loading...</span>
+</div>
+
+<script>
+(function() {
+  fetch('https://wttr.in/San+Francisco?format=j1')
+    .then(function(response) { return response.json(); })
+    .then(function(data) {
+      var current = data.current_condition[0];
+      var temp = current.temp_F;
+      var desc = current.weatherDesc[0].value;
+      var code = current.weatherCode;
+
+      var icon = '&#9728;'; // default sun
+      if (code >= 200 && code < 300) icon = '&#9889;'; // thunderstorm
+      else if (code >= 300 && code < 600) icon = '&#127783;'; // rain
+      else if (code >= 600 && code < 700) icon = '&#10052;'; // snow
+      else if (code >= 700 && code < 800) icon = '&#127787;'; // fog
+      else if (code == 800) icon = '&#9728;'; // clear
+      else if (code > 800) icon = '&#9729;'; // clouds
+
+      var iconEl = document.querySelector('.weather-icon');
+      var tempEl = document.querySelector('.weather-temp');
+      var descEl = document.querySelector('.weather-desc');
+
+      if (iconEl) iconEl.innerHTML = icon;
+      if (tempEl) tempEl.textContent = temp + '°F';
+      if (descEl) descEl.textContent = desc;
+    })
+    .catch(function(err) {
+      var descEl = document.querySelector('.weather-desc');
+      if (descEl) descEl.textContent = '';
+    });
+})();
+</script>

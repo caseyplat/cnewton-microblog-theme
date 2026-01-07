@@ -423,3 +423,41 @@ code, pre {
 .currently-reading-widget .widget-link:hover {
     color: var(--cyan) !important;
 }
+
+/* Weather Widget */
+.weather-widget {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 1rem !important;
+    margin: 1rem auto !important;
+    max-width: 250px !important;
+    background: var(--dark) !important;
+    border: 1px solid var(--cyan) !important;
+    border-radius: 4px !important;
+    font-family: 'Space Mono', monospace !important;
+    font-size: 0.75rem !important;
+}
+
+.weather-icon {
+    font-size: 1rem !important;
+}
+
+.weather-location {
+    font-family: 'Silkscreen', cursive !important;
+    font-size: 0.6rem !important;
+    color: var(--magenta) !important;
+    letter-spacing: 1px !important;
+}
+
+.weather-temp {
+    color: var(--cyan) !important;
+    font-weight: bold !important;
+}
+
+.weather-desc {
+    color: var(--light) !important;
+    font-size: 0.65rem !important;
+    opacity: 0.8;
+}
