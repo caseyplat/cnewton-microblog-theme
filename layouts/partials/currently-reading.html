@@ -1,0 +1,22 @@
+{{ with index .Site.Data.bookshelves "currently-reading" }}
+{{ range first 1 . }}
+<div id="currently-reading" class="currently-reading-widget">
+  <div class="widget-header">
+    <span class="pixel-icon">📖</span>
+    <span class="widget-label">CURRENTLY READING</span>
+  </div>
+  <div class="widget-content">
+    {{ if .cover_url }}
+    <img src="{{ .cover_url }}" alt="{{ .title }}" class="book-cover">
+    {{ end }}
+    <div class="book-info">
+      <div class="book-title">{{ .title }}</div>
+      <div class="book-author">{{ .author }}</div>
+    </div>
+  </div>
+  <a href="https://micro.blog/books/{{ .isbn }}" target="_blank" class="widget-link">
+    View on Micro.blog →
+  </a>
+</div>
+{{ end }}
+{{ end }}

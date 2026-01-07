@@ -343,3 +343,83 @@ code, pre {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
 }
+
+/* Currently Reading Widget */
+#currently-reading {
+    background: var(--dark) !important;
+    border: 1px solid var(--magenta) !important;
+    border-radius: 4px !important;
+    padding: 1rem !important;
+    margin: 2rem auto !important;
+    max-width: 300px !important;
+}
+
+.currently-reading-widget .widget-header {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-bottom: 0.75rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid var(--gray) !important;
+}
+
+.currently-reading-widget .pixel-icon {
+    font-size: 1.2rem !important;
+}
+
+.currently-reading-widget .widget-label {
+    font-family: 'Silkscreen', cursive !important;
+    font-size: 0.65rem !important;
+    color: var(--magenta) !important;
+    letter-spacing: 2px !important;
+}
+
+.currently-reading-widget .widget-content {
+    display: flex !important;
+    gap: 0.75rem !important;
+    align-items: center !important;
+}
+
+.currently-reading-widget .book-cover {
+    width: 64px !important;
+    height: auto !important;
+    max-height: 96px !important;
+    border: 2px solid var(--magenta) !important;
+    border-radius: 2px !important;
+    object-fit: cover !important;
+}
+
+.currently-reading-widget .book-info {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.currently-reading-widget .book-title {
+    font-family: 'Space Mono', monospace !important;
+    font-size: 0.85rem !important;
+    color: var(--light) !important;
+    font-weight: bold !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.currently-reading-widget .book-author {
+    font-family: 'Space Mono', monospace !important;
+    font-size: 0.75rem !important;
+    color: var(--cyan) !important;
+}
+
+.currently-reading-widget .widget-link {
+    display: block !important;
+    margin-top: 0.75rem !important;
+    padding-top: 0.5rem !important;
+    border-top: 1px solid var(--gray) !important;
+    font-family: 'Silkscreen', cursive !important;
+    font-size: 0.55rem !important;
+    color: var(--magenta) !important;
+    text-decoration: none !important;
+    letter-spacing: 1px !important;
+}
+
+.currently-reading-widget .widget-link:hover {
+    color: var(--cyan) !important;
+}
