@@ -424,6 +424,75 @@ code, pre {
     color: var(--cyan) !important;
 }
 
+/* Unified Navigation (matching cnewton.org) */
+.unified-nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 1.5rem 2rem !important;
+    background: var(--darker) !important;
+    border-bottom: 1px solid var(--gray) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+}
+
+.nav-logo {
+    font-family: 'Silkscreen', cursive !important;
+    font-size: 0.75rem !important;
+    color: var(--cyan) !important;
+    text-decoration: none !important;
+    letter-spacing: 2px !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-logo:hover {
+    color: var(--magenta) !important;
+    text-shadow: 0 0 10px var(--magenta) !important;
+}
+
+.nav-links {
+    display: flex !important;
+    gap: 2rem !important;
+    align-items: center !important;
+}
+
+.nav-links a {
+    font-family: 'Silkscreen', cursive !important;
+    font-size: 0.6rem !important;
+    color: var(--light) !important;
+    text-decoration: none !important;
+    letter-spacing: 2px !important;
+    transition: all 0.3s ease !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.nav-links a:hover {
+    color: var(--cyan) !important;
+    text-shadow: 0 0 10px var(--cyan) !important;
+}
+
+.nav-links a.nav-active {
+    color: var(--cyan) !important;
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+    .unified-nav {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        padding: 1rem !important;
+    }
+
+    .nav-links {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 1rem !important;
+    }
+}
+
 /* Weather Widget */
 .weather-widget {
     display: flex !important;
