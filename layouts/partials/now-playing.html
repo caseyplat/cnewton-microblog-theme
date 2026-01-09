@@ -17,13 +17,8 @@
 
 <script>
 (function() {
-  var LASTFM_API_KEY = '03e28ba92a50fd89fcebfc14b0b1bec2';
-  var LASTFM_USER = 'caseyswan';
-
   function fetchNowPlaying() {
-    var url = 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=' + LASTFM_USER + '&api_key=' + LASTFM_API_KEY + '&limit=1&format=json';
-
-    fetch(url)
+    fetch('/.netlify/functions/lastfm')
       .then(function(response) { return response.json(); })
       .then(function(data) {
         var track = data.recenttracks.track[0];
